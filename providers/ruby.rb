@@ -29,8 +29,8 @@ action :install do
 
     start_time = Time.now
     out = new_resource.patch ?
-      rbenv_command("install --patch #{new_resource.name}", patch: new_resource.patch) :
-      rbenv_command("install #{new_resource.name}")
+      rbenv_command("#{new_resource.command} --patch #{new_resource.name}", patch: new_resource.patch) :
+      rbenv_command("#{new_resource.command} #{new_resource.name}")
 
     unless out.exitstatus == 0
       raise Chef::Exceptions::ShellCommandFailed, "\n" + out.format_for_exception

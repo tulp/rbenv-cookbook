@@ -25,6 +25,7 @@ attribute :ruby_version, :kind_of => String, :name_attribute => true
 attribute :force,        :default => false
 attribute :global,       :default => false
 attribute :patch,        :default => nil
+attribute :command,      :default => 'install'
 
 def initialize(*args)
   super
